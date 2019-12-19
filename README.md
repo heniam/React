@@ -1,2 +1,3 @@
 # React
-https://github.com/heniam1/React/blob/master/1.png
+
+![alt test](/1.png)
