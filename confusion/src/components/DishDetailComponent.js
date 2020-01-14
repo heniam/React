@@ -7,7 +7,7 @@ class Dishdetail extends Component {
         if (comments == null) {
             return (<div></div>)
         }
-        const cmnts = comments.map(comment => {
+        const com_ments = comments.map(comment => {
             return (
                 <li key={comment.id}>
                     <p>{comment.comment}</p>
@@ -23,10 +23,10 @@ class Dishdetail extends Component {
             )
         })
         return (
-            <div className='col-5 col-md-5 m-1'>
+            <div className='col-12 col-md-5 m-1'>
                 <h4> Comments </h4>
                 <ul className='list-unstyled'>
-                    {cmnts}
+                    {com_ments}
                 </ul>
 
             </div>
@@ -36,7 +36,7 @@ class Dishdetail extends Component {
     renderDish(dish) {
         if (dish != null) {
             return (
-                <div className='col-5 col-md-5 m-1'>
+                <div className='col-12 col-md-5 m-1'>
                     <Card>
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardBody>
