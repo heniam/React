@@ -1,38 +1,38 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay,  /*CardText, CardBody,*/CardTitle } from 'reactstrap';
-
+// import DishDetail from './DishDetailComponent';
 
 
 export class Menu extends Component {
-    constructor(props) {
-        super(props);
+  //   constructor(props) {
+  //       super(props);
+  //
+  //   //     this.state = {
+  //   //       selectedDish: null
+  //   // }
+  //
+  // }
 
-    //     this.state = {
-    //       selectedDish: null
-    // }
-
-  }
 
 
-
-  renderDish(dish){
-    // if(dish != null){
-    //   return (
-    //     <Card>
-    //       // <CardImg width = "100%" src={dish.image} alt={dish.name} />
-    //       // <CardBody>
-    //       //     <CardTitle>{dish.name}</CardTitle>
-    //       //     <CardText>{dish.description}</CardText>
-    //       // </CardBody>
-    //     </Card>
-    //   );
-    // }
-  //   else {
-  //     return (
-  //       <div></div>
-  //     )
-  //   }
-  }
+  // renderDish(dish){
+  //   // if(dish != null){
+  //   //   return (
+  //   //     <Card>
+  //   //       // <CardImg width = "100%" src={dish.image} alt={dish.name} />
+  //   //       // <CardBody>
+  //   //       //     <CardTitle>{dish.name}</CardTitle>
+  //   //       //     <CardText>{dish.description}</CardText>
+  //   //       // </CardBody>
+  //   //     </Card>
+  //   //   );
+  //   // }
+  // //   else {
+  // //     return (
+  // //       <div></div>
+  // //     )
+  // //   }
+  // }
 
     render() {
         const menu = this.props.dishes.map((dish) => {
@@ -43,8 +43,7 @@ export class Menu extends Component {
 
                       <CardImg width = "100%" src={dish.image} alt={dish.name} />
 
-                <CardImgOverlay body className="ml-5">
-
+                <CardImgOverlay>
                     <CardTitle>{dish.name}</CardTitle>
                   </CardImgOverlay>
                 </Card>

@@ -68,4 +68,4 @@ class Dishdetail extends Component {
     }
 }
 
-export default Dishdetail
+export default Dishdetail;
