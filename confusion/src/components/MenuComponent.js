@@ -4,14 +4,18 @@ import { Card, CardImg, CardImgOverlay,  /*CardText, CardBody,*/CardTitle } from
 
 
 export class Menu extends Component {
-  //   constructor(props) {
-  //       super(props);
-  //
-  //   //     this.state = {
-  //   //       selectedDish: null
-  //   // }
-  //
-  // }
+    constructor(props) {
+        super(props);
+        console.log("MenuComponent constructor invoked");
+    //     this.state = {
+    //       selectedDish: null
+    // }
+
+  }
+
+  componentDidMount(){
+    console.log("Menu Component componentDidMount invoked");
+  }
 
 
 
