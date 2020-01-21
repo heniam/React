@@ -3,7 +3,7 @@ import React ,{Component} from 'react';
 // import {Navbar, NavbarBrand} from 'reactstrap';
 import Main from './components/MainComponent';
 import './App.css';
-// import {DISHES} from './shared/dishes';
+import {BrowserRouter} from 'react-router-dom';
 
 class App extends Component {
 
@@ -17,16 +17,11 @@ class App extends Component {
 
   render(){
   return (
-
-    /*   <Navbar dark color="primary">
-    //   <div claseName="container">
-    //       <NavbarBrand href="/"> Ristorante Con Fusion </NavbarBrand>
-    //     </div>
-    //   </Navbar> */
-
-   <div className="App">
+    <BrowserRouter>
+   <div>
         <Main/>
     </div>
+  </BrowserRouter>
 
   );
 }
