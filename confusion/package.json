@@ -11,6 +11,7 @@
     "babel-preset-react-native": "^4.0.1",
     "bootstrap": "^4.3.1",
     "bootstrap-social": "5.1.1",
+    "cross-fetch": "^3.0.4",
     "font-awesome": "^4.7.0",
     "popper": "^0.1.0",
     "popper.js": "^2.0.0-next.4",
