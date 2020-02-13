@@ -2,19 +2,31 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {baseUrl} from '../shared/baseUrl';
-import {FadeTransform, Fade, Stagger} from 'react-animation-components';
+import {Loading} from './LoadingComponent';
+import {Fade, Stagger} from 'react-animation-components';
 
 
-function About(props) {
-
-    const leaders = props.leaders.leaders.map((leader) => {
-        return (
-          <div key={leader.id} className="col-12 mt-5">
-               <RenderLeader leader={leader} />
-           </div>
+function RenderLeaders({leaders, isLoading, errMess}) {
+    if (isLoading) {
+        return(
+            <Loading />
         );
-    });
-
+    }
+    else if (errMess) {
+        return(
+            <h4>{errMess}</h4>
+        );
+    }
+    else {
+        return(
+            <Media list>
+                <Stagger in>
+                    {leaders.map((leader) => <Fade in><RenderLeader key={leader.id} leader={leader} /></Fade>)}
+                </Stagger>
+            </Media>
+        );
+    }
+}
 
 function RenderLeader({leader}){
     return(
@@ -35,6 +47,20 @@ function RenderLeader({leader}){
                );
 
     }
+
+
+
+function About(props) {
+
+
+  const leaders = <RenderLeaders leaders={props.leaders.leaders}
+        isLoading={props.leaders.isLoading}
+        errMess={props.leaders.errMess} />;
+
+
+
+
+
 
     return(
         <div className="container">
