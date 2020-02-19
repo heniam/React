@@ -21,12 +21,13 @@ class Contact extends Component{
 
 
 
-  handleSubmit(values) {
-    console.log("Submitting feedback: " + JSON.stringify(values))
-    this.props.postFeedback(values);
-    this.props.resetFeedbackForm();
-      }
+  handleSubmit(values){
+       this.props.postFeedback(values.firstname,values.lastname,values.telnum,values.email,values.agree,values.contactType,values.message);
+       console.log(values);
+       alert('Thanks for your feedback :'+ JSON.stringify(values));
+       this.props.resetFeedbackForm();
 
+   }
 
 
 

@@ -21,7 +21,11 @@ function RenderLeaders({leaders, isLoading, errMess}) {
         return(
             <Media list>
                 <Stagger in>
-                    {leaders.map((leader) => <Fade in><RenderLeader key={leader.id} leader={leader} /></Fade>)}
+                    {leaders.map((leader) =>
+                      <Fade in>
+                          <RenderLeader key={leader.id} leader={leader} />
+                      </Fade>)
+                    }
                 </Stagger>
             </Media>
         );
@@ -31,18 +35,18 @@ function RenderLeaders({leaders, isLoading, errMess}) {
 function RenderLeader({leader}){
     return(
 
-      <Media tag="li">
-                 <Media right middle>
-                     <Media object src={baseUrl +leader.image} alt={leader.name} />
-                 </Media>
-                  <Stagger in>
-                 <Media body className="ml-5">
-                     <Media heading>{leader.name}</Media>
-                     <p>{leader.designation}</p>
-                     <p>{leader.description}</p>
-                   </Media>
-                </Stagger>
-                 </Media>
+      <div key={leader.id} className="col-12 mt-5">
+              <Media tag="li">
+              <Media right middle>
+                     <Media object src={baseUrl + leader.image} alt={leader.name} />
+              </Media>
+              <Media body className="ml-5">
+                  <Media heading>{leader.name}</Media>
+                   <p>{leader.designation}</p>
+                  <p>{leader.description}</p>
+              </Media>
+          </Media>
+      </div>
 
                );
 

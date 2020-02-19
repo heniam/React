@@ -26,11 +26,11 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = (dispatch) => ({
   postComment: (dishId,rating, author, comment) => dispatch(postComment(dishId,rating, author, comment)),
   fetchDishes: () => {dispatch(fetchDishes())},
+  postFeedback:(firstname,lastname,telnum,email,agree,contactType,message)=>dispatch(postFeedback(firstname,lastname,telnum,email,agree,contactType,message)),
   resetFeedbackForm:()=>{dispatch(actions.reset('feedback'))},
   fetchComments: () => {dispatch(fetchComments())},
   fetchPromos: () => {dispatch(fetchPromos())},
   fetchLeader: () => {dispatch(fetchLeader())},
-  postFeedback: feedback => dispatch(postFeedback(feedback)),
 });
 
 class Main extends Component {
@@ -86,15 +86,14 @@ class Main extends Component {
         <Header/>
         <TransitionGroup>
            <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-             <Switch location={this.props.location}>
-                 <Route path='/home' component={HomePage} />
-                 <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />} />
-                 <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
-                 <Route path='/menu/:dishId' component={DishWithId} />
-                 <Route exact path='/contactus' component={() => <Contact postFeedback={this.props.postFeedback}
-                  resetFeedbackForm={this.props.resetFeedbackForm} />} />
-                <Redirect to="/home" />
-             </Switch>
+           <Switch>
+              <Route path ='/home' component={HomePage}/>
+              <Route exact path ='/menu' component={()=><Menu dishes={this.props.dishes}/>}/>
+              <Route path='/menu/:dishId' component={DishWithId}/>
+              <Route path='/aboutus' component={()=><About leaders={this.props.leaders}/>}/>
+              <Route exact path='/contactus' component={()=><Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}/>}/>
+              <Redirect to='/home'/>
+            </Switch>
            </CSSTransition>
          </TransitionGroup>
           <Footer/>
